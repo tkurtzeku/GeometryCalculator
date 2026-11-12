@@ -8,22 +8,20 @@
 import UIKit
 
 class calculationScreen_1Variable: UIViewController {
-
+    // TIM: This screen has far less to change, since only the Circle formulas use 1 variable. The other two screens will have much more to keep track of.
+    
+    @IBOutlet weak var formulaNameLabel: UILabel!
+    @IBOutlet weak var resultsLabel: UILabel!
+    @IBOutlet weak var inputTextField: UITextField!
+    
+    @IBAction func calculateButtonPressed(_ sender: Any) {
+        // TIM: Not only should this call a formula calculation function based on the formula selected before entering this screen, but this should also play an animation of the image getting slightly bigger and returning to its original size.
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

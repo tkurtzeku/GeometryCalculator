@@ -8,22 +8,24 @@
 import UIKit
 
 class calculationScreen_2Variables: UIViewController {
-
+    
+    @IBOutlet weak var input1TextField: UITextField!
+    @IBOutlet weak var input2TextField: UITextField!
+    @IBOutlet weak var formulaNameLabel: UILabel!
+    @IBOutlet weak var resultsLabel: UILabel!
+    @IBOutlet weak var shapeImage: UIImageView!
+    // TIM: these variables are only for setting colors on the buttons:
+    @IBOutlet weak var calcButtonColor: UIButton!
+    @IBOutlet weak var returnButtonColor: UIButton!
+    
+    @IBAction func calculateButtonPressed(_ sender: Any) {
+        // TIM: Not only should this call a formula calculation function based on the formula selected before entering this screen, but this should also play an animation of the image getting slightly bigger and returning to its original size.
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
