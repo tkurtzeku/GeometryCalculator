@@ -8,7 +8,12 @@
 import UIKit
 
 class triangleVC: UIViewController {
-    let formulas = ["Perimeter", "Area", "Volume (of a Prism)"]
+    let formulas = ["Perimeter", "Area", "Volume (of a Cone)"]
+    
+    
+    @IBAction func returnButtonPressed(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,16 +42,39 @@ extension triangleVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        // Selecting the type of formula screen to use.
         switch indexPath.row {
         case 0:
-            print("Selected TriPerimeter - 3 Variable Formula")
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "calculationScreen_3Variables") as? calculationScreen_3Variables else {
+                return
+            }
+            vc.formulaName = "Triangle Perimeter"
+            vc.shapeName = "Triangle"
+            vc.shapeImageName = "shapeIcon_triangle"
+            vc.shapeColor = .systemYellow
+            
+            navigationController?.pushViewController(vc, animated: true)
         case 1:
-            print("Selected TriArea - 2 Variable Formula")
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "calculationScreen_2Variables") as? calculationScreen_2Variables else {
+                return
+            }
+            vc.formulaName = "Triangle Area"
+            vc.shapeName = "Triangle"
+            vc.shapeImageName = "shapeIcon_triangle"
+            vc.shapeColor = .systemYellow
+            
+            navigationController?.pushViewController(vc, animated: true)
         case 2:
-            print("Selected TriVolume - 2 Variable Formula")
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "calculationScreen_2Variables") as? calculationScreen_2Variables else {
+                return
+            }
+            vc.formulaName = "Cone Volume"
+            vc.shapeName = "Cone"
+            vc.shapeImageName = "shapeIcon_triangle"
+            vc.shapeColor = .systemYellow
+            
+            navigationController?.pushViewController(vc, animated: true)
         default:
-            print("Unknown!!")
+            break
         }
     }
 }

@@ -9,6 +9,11 @@ import UIKit
 
 class calculationScreen_2Variables: UIViewController {
     
+    var formulaName: String = ""
+    var shapeName: String = ""
+    var shapeImageName: String = ""
+    var shapeColor: UIColor = .systemRed
+    
     @IBOutlet weak var input1TextField: UITextField!
     @IBOutlet weak var input2TextField: UITextField!
     @IBOutlet weak var formulaNameLabel: UILabel!
@@ -23,9 +28,24 @@ class calculationScreen_2Variables: UIViewController {
         
     }
     
+    @IBAction func returnButtonPressed(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        formulaNameLabel.text = formulaName
+        
+        shapeImage.image = UIImage(named: shapeImageName)
+        
+        calcButtonColor.backgroundColor = shapeColor
+        returnButtonColor.backgroundColor = shapeColor
+        
+        resultsLabel.text = ""
+        
+        calcButtonColor.setTitleColor(.white, for: .normal)
+        returnButtonColor.setTitleColor(.white, for: .normal)
     }
 }

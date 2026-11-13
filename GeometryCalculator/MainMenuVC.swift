@@ -50,28 +50,19 @@ extension MainMenuVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        // Selecting the
         switch indexPath.row {
+            
         case 0:
-            print("Selected Rectangle/Prism")
-            guard let rectViewController = mainStoryboard.instantiateViewController(withIdentifier: "rectangleVC") as? rectangleVC else {
-                return
-            }
-            present(rectViewController, animated: true)
+            let vc = mainStoryboard.instantiateViewController(withIdentifier: "rectangleVC") as! rectangleVC
+            navigationController?.pushViewController(vc, animated: true)
         case 1:
-            print("Selected Circle/Sphere")
-            guard let circleViewController = mainStoryboard.instantiateViewController(withIdentifier: "circleVC") as? circleVC else {
-                return
-            }
-            present(circleViewController, animated: true)
+            let vc = mainStoryboard.instantiateViewController(withIdentifier: "circleVC") as! circleVC
+            navigationController?.pushViewController(vc, animated: true)
         case 2:
-            print("Selected Triangle/Cone")
-            guard let triViewController = mainStoryboard.instantiateViewController(withIdentifier: "triangleVC") as? triangleVC else {
-                return
-            }
-            present(triViewController, animated: true)
+            let vc = mainStoryboard.instantiateViewController(withIdentifier: "triangleVC") as! triangleVC
+            navigationController?.pushViewController(vc, animated: true)
         default:
-            print("Unknown!!")
+            break
         }
     }
 }

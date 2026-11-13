@@ -10,6 +10,11 @@ import UIKit
 class rectangleVC: UIViewController {
     let formulas = ["Perimeter", "Area", "Volume (of a Prism)"]
     
+    
+    @IBAction func returnButtonPressed(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,16 +42,37 @@ extension rectangleVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        // Selecting the type of formula screen to use.
-        switch indexPath.row {
-        case 0:
-            print("Selected RectPerimeter - 2 Variable Formula")
-        case 1:
-            print("Selected RectArea - 2 Variable Formula")
+        switch indexPath.row{
+            
+        case 0, 1:
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "calculationScreen_2Variables") as? calculationScreen_2Variables else{
+                return
+            }
+            
+            if indexPath.row == 0{
+                vc.formulaName = "Rectangle Perimeter"
+            } else {
+                vc.formulaName = "Rectangle Area"
+            }
+            
+            vc.shapeName = "Rectangle"
+            vc.shapeImageName = "shapeIcon_rectangle"
+            vc.shapeColor = .systemRed
+            
+            navigationController?.pushViewController(vc, animated: true)
         case 2:
-            print("Selected RectVolume - 3 Variable Formula")
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "calculationScreen_3Variables") as? calculationScreen_3Variables else{
+                return
+            }
+            
+            vc.formulaName = "Rectangle Volume"
+            vc.shapeName = "Rectangle"
+            vc.shapeImageName = "shapeIcon_rectangle"
+            vc.shapeColor = .systemRed
+            
+            navigationController?.pushViewController(vc, animated: true)
         default:
-            print("Unknown!!")
+            break
         }
     }
 }

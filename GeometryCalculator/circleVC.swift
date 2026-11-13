@@ -16,6 +16,11 @@ class circleVC: UIViewController {
         }
     }
     
+    @IBAction func returnButtonPressed(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,17 +48,21 @@ extension circleVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        // Selecting the type of formula screen to use.
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "calculationScreen_1Variable") as? calculationScreen_1Variable else{
+            return
+        }
+        
         switch indexPath.row {
         case 0:
-            print("Selected CircleCircumference - 1 Variable Formula")
-            
+            vc.formulaName = "Circle Circumference"
         case 1:
-            print("Selected CircleArea - 1 Variable Formula")
+            vc.formulaName = "Circle Area"
         case 2:
-            print("Selected CircleVolume - 1 Variable Formula")
+            vc.formulaName = "Sphere Volume"
         default:
-            print("Unknown!!")
+            return
         }
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

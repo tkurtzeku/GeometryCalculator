@@ -9,6 +9,7 @@ import UIKit
 
 class calculationScreen_1Variable: UIViewController {
     // TIM: This screen has far less to change, since only the Circle formulas use 1 variable. The other two screens will have much more to keep track of.
+    var formulaName: String = ""
     
     @IBOutlet weak var formulaNameLabel: UILabel!
     @IBOutlet weak var resultsLabel: UILabel!
@@ -19,9 +20,16 @@ class calculationScreen_1Variable: UIViewController {
         
     }
     
+    @IBAction func returnButtonPressed(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        formulaNameLabel.text = formulaName
+        
+        resultsLabel.text = ""
     }
 }
