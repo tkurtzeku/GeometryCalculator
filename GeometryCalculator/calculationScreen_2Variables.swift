@@ -12,7 +12,9 @@ class calculationScreen_2Variables: UIViewController {
     var formulaName: String = ""
     var shapeName: String = ""
     var shapeImageName: String = ""
-    var shapeColor: UIColor = .systemRed
+    var input1Placeholder: String = ""
+    var input2Placeholder: String = ""
+    var shapeColor: UIColor = .black
     
     @IBOutlet weak var input1TextField: UITextField!
     @IBOutlet weak var input2TextField: UITextField!
@@ -37,13 +39,18 @@ class calculationScreen_2Variables: UIViewController {
         super.viewDidLoad()
 
         formulaNameLabel.text = formulaName
+        formulaNameLabel.textColor = shapeColor
+        
+        input1TextField.placeholder = input1Placeholder
+        input2TextField.placeholder = input2Placeholder
         
         shapeImage.image = UIImage(named: shapeImageName)
         
-        calcButtonColor.backgroundColor = shapeColor
-        returnButtonColor.backgroundColor = shapeColor
+        calcButtonColor.configuration?.baseBackgroundColor = shapeColor
+        returnButtonColor.configuration?.baseBackgroundColor = shapeColor
         
-        resultsLabel.text = ""
+        resultsLabel.text = "..."
+        resultsLabel.textColor = shapeColor
         
         calcButtonColor.setTitleColor(.white, for: .normal)
         returnButtonColor.setTitleColor(.white, for: .normal)

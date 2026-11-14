@@ -57,7 +57,10 @@ extension rectangleVC: UITableViewDelegate {
             
             vc.shapeName = "Rectangle"
             vc.shapeImageName = "shapeIcon_rectangle"
-            vc.shapeColor = .systemRed
+            vc.shapeColor = UIColor(red: 240/255.0, green: 89/255.0, blue: 89/255.0, alpha: 1.0)
+            
+            vc.input1Placeholder = "Length"
+            vc.input2Placeholder = "Width"
             
             navigationController?.pushViewController(vc, animated: true)
         case 2:
@@ -68,7 +71,12 @@ extension rectangleVC: UITableViewDelegate {
             vc.formulaName = "Rectangle Volume"
             vc.shapeName = "Rectangle"
             vc.shapeImageName = "shapeIcon_rectangle"
-            vc.shapeColor = .systemRed
+            vc.shapeColor = UIColor(red: 240/255.0, green: 89/255.0, blue: 89/255.0, alpha: 1.0)
+
+            
+            vc.input1Placeholder = "Length"
+            vc.input2Placeholder = "Width"
+            vc.input3Placeholder = "Height"
             
             navigationController?.pushViewController(vc, animated: true)
         default:

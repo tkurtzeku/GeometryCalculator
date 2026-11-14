@@ -50,7 +50,11 @@ extension triangleVC: UITableViewDelegate {
             vc.formulaName = "Triangle Perimeter"
             vc.shapeName = "Triangle"
             vc.shapeImageName = "shapeIcon_triangle"
-            vc.shapeColor = .systemYellow
+            vc.shapeColor = UIColor(red: 245/255.0, green: 186/255.0, blue: 92/255.0, alpha: 1.0)
+            
+            vc.input1Placeholder = "Side A"
+            vc.input2Placeholder = "Side B"
+            vc.input3Placeholder = "Side C"
             
             navigationController?.pushViewController(vc, animated: true)
         case 1:
@@ -60,7 +64,10 @@ extension triangleVC: UITableViewDelegate {
             vc.formulaName = "Triangle Area"
             vc.shapeName = "Triangle"
             vc.shapeImageName = "shapeIcon_triangle"
-            vc.shapeColor = .systemYellow
+            vc.shapeColor = UIColor(red: 245/255.0, green: 186/255.0, blue: 92/255.0, alpha: 1.0)
+            
+            vc.input1Placeholder = "Base"
+            vc.input2Placeholder = "Height"
             
             navigationController?.pushViewController(vc, animated: true)
         case 2:
@@ -70,7 +77,10 @@ extension triangleVC: UITableViewDelegate {
             vc.formulaName = "Cone Volume"
             vc.shapeName = "Cone"
             vc.shapeImageName = "shapeIcon_triangle"
-            vc.shapeColor = .systemYellow
+            vc.shapeColor = UIColor(red: 245/255.0, green: 186/255.0, blue: 92/255.0, alpha: 1.0)
+            
+            vc.input1Placeholder = "Radius"
+            vc.input2Placeholder = "Height"
             
             navigationController?.pushViewController(vc, animated: true)
         default:
